@@ -8,6 +8,22 @@ output:
     theme: united
 ---
 
+# Versions
+
+
+Project     |  Version  |  Repository
+------------|-----------|-------------
+PolyJIT     | 9cfce1a   |
+Likwid      | 5830615   |
+isl         | e6a659e   |
+isl-cpp     |	28a72cb   |
+Benchbuild  | 262653a   |
+Compiler-RT | fdc221a   |
+Polly	      | 029f2ae   |
+LLVM   	    | 4cd5308   |
+Clang     	| c3709e7   |
+OpenMP	    | 72db09b   |
+
 
 
 ```{r Library, echo=TRUE, include=FALSE}
