@@ -1,0 +1,7 @@
+name: "PLDI 2017 Submission No. 198"
+output_dir: "."
+navbar:
+  title: "PLDI 2017"
+  left:
+    - text: "Submission No. 198"
+      href: index.html
