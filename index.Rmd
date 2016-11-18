@@ -2,28 +2,32 @@
 output:
   html_document:
     fig_caption: yes
-    fig_height: 6
-    fig_width: 11
+    fig_height: 5
+    fig_width: 5
     highlight: tango
     theme: united
+title: "Comprehensive results"
 ---
+
+Below you'll find a detailed description of all components necessary to rebuild
+all empirical measurement results with PolyJIT.
 
 # Versions
 
+Before you can get started you require the following tools:
 
 Project     |  Version  |  Repository
 ------------|-----------|-------------
-PolyJIT     | 9cfce1a   |
+PolyJIT     | 9cfce1a   | <Temporary omitted for blind review>
 Likwid      | 5830615   |
 isl         | e6a659e   |
 isl-cpp     |	28a72cb   |
-Benchbuild  | 262653a   |
+Benchbuild  | 262653a   | <Temporary omitted for blind review>
 Compiler-RT | fdc221a   |
-Polly	      | 029f2ae   |
+Polly	      | 029f2ae   | 
 LLVM   	    | 4cd5308   |
 Clang     	| c3709e7   |
 OpenMP	    | 72db09b   |
-
 
 
 ```{r Library, echo=TRUE, include=FALSE}
@@ -38,11 +42,8 @@ if (!require(rpivotTable)) { install.packages("rpivotTable")}
 library(rpivotTable)
 library(repr)
 c <- benchbuild::login("bb")
-```
-
-```{r Functions, echo=TRUE, include=FALSE}
 exps <- benchbuild::get_experiments(c)
-options(repr.plot.width=24, repr.plot.height=12)
+options(repr.plot.width=8, repr.plot.height=8)
 
 plot_comparison_data <- function(selected) {
   exps <- exps[exps$id %in% selected,]$id
@@ -164,6 +165,8 @@ all <- rbind(neg, pos)
 
 # Complete Set
 
+Various representations of the complete data set.
+
 ## Violins
 ```{r box, echo=FALSE}  
 box_plot(all)
@@ -229,11 +232,14 @@ pos_small <- box_plot_small(pos_complete,
 ```{r foo, echo=FALSE}
 csv <- read.csv("./data.csv")
 DT::datatable(csv,
+              extensions = 'FixedColumns',
               options = list(
-    style = 'bootstrap',
-    class = 'table-condensed',
-    paging = FALSE,
-    server = TRUE))
+                style = 'bootstrap',
+                class = 'table-condensed',
+                paging = FALSE,
+                server = TRUE,
+                scrollX= TRUE,
+                scrollCollapse = TRUE))
 #length(levels(as.factor(pos$project)))
 #length(levels(as.factor(neg$project)))
 # 
